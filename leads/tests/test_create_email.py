@@ -1,19 +1,13 @@
-import requests
+from rest_framework import status
+from rest_framework.test import APITestCase
 
 
-def test_cerate_email_status_code():
-    payload = {"name": "lid", "email": "user@teste2.com"}
-    r = requests.post("http://127.0.0.1:8000/api/v1/email/", data=payload)
-    assert r.status_code == 201
+class LeadTestCase(APITestCase):
+    def test_create_lead(self):
+        data = {"name": "Charles Tenorio", "email": "charlestenorios@gmail.com"}
+        response = self.client.post("/api/v1/email/", data)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
-
-def test_exist_email_status_code():
-    payload = {"name": "lid", "email": "user@teste.com"}
-    r = requests.post("http://127.0.0.1:8000/api/v1/email/", data=payload)
-    assert r.status_code == 409
-
-
-def test_find_email():
-    payload = {"email": "user@teste.com"}
-    r = requests.get("http://127.0.0.1:8000/api/v1/email/", data=payload)
-    assert r.status_code == 200
+    def test_list_lead(self):
+        response = self.client.get("/api/v1/email/")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
