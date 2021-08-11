@@ -23,6 +23,7 @@ install = "*"
 pytest-django = "*"
 pytest-mock = "*"
 codecov = "*"
+pytest-cov = "*"
 
 [requires]
 python_version = "3.9"
