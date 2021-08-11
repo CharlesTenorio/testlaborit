@@ -28,4 +28,4 @@ script:
   - pipenv run flake8 .
   - pipenv run pytest --cov=drtimeapi
 after_success:
-  -pipenv run codecov
+  -pipenv run
