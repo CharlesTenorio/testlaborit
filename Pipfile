@@ -22,6 +22,7 @@ flake8 = "*"
 install = "*"
 pytest-django = "*"
 pytest-mock = "*"
+codecov = "*"
 
 [requires]
 python_version = "3.9"
