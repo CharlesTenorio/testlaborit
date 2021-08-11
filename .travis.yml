@@ -4,17 +4,12 @@ sudo: true
 
 python:
   - 3.9
-
 services:
   postgresql
 addons:
-  postgresql: '11.5'
+  postgresql: '10'
 
 env:
-    POSTGRES_USER: postgres
-    POSTGRES_PASSWORD: postgres
-    POSTGRES_DB: testdb
-    ports: ['5432:5432']
   global:
     - PIPENV_VENV_IN_PROJECT=1
     - PIPENV_IGNORE_VIRTUALENVS=1
@@ -24,8 +19,11 @@ install:
   - pipenv sync -d
   - cp contrib/env-sample .env
 
+before_script:
+  - psql -c "CREATE DATABASE testdb;" -U postgres
+
 script:
-  - pipenv run flake8 .
-  - pipenv run pytest --cov=drtimeapi
+
+  - pipenv run pytest --cov=apiemail
 after_success:
-  -pipenv run
+    -pipenv run codecov
