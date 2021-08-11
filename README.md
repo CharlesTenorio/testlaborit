@@ -9,6 +9,8 @@
 :computer: I'm Backend Developer Python and .NET CORE C# !
 
 :Laborit Test: API REST DJANGO REST
+:APlicação no Heroku 
+https://apilaborit.herokuapp.com/api/docs/
 
 
 
