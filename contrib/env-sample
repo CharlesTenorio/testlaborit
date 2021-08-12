@@ -6,3 +6,4 @@ DB_USER=postgres
 DB_PW=linux123
 DB_HOST=localhost
 DB_PORT=5432
+SENTRY_DSN=https://353170b6950641479584ce37163a8277@o953945.ingest.sentry.io/5902874
